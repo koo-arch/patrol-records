@@ -1,0 +1,231 @@
+
+/* common css */
+html {
+  touch-action: manipulation;
+  height: 100%;
+}
+
+body {
+	padding: 50px;
+	font-size: 100%;
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	color: #222;
+	background: #f7f7f7;
+}
+a {
+    color: #007edf;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+	  margin-bottom: 30px;
+    font-size: 100%;
+    color: #222;
+    text-align: center;
+}
+
+/* テキストボックス周辺 */
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 86%;
+}
+input[type="text"] {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 86%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  width: 200px;
+}
+input[type="text"][disabled]{
+  background:#DCDCDC;
+  cursor:not-allowed; /* 禁止カーソル */
+}
+
+/* セレクトボックス */
+
+select{
+  margin-bottom: 20px;
+  padding:10px;
+  font-size: 86%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  width: 200px;
+}
+.container {
+  position: relative;
+  width: 200px;
+}
+.container:after {
+  content: "";
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    transform: translateY(-50%) rotate(
+-135deg
+);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* ここからボタン */
+
+button{
+  font-size: 86%;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #fff;
+  padding:10px;
+  text-align: center;
+}
+#up1,#up2{
+  width: 40px;
+}
+#down1,#down2{
+  width: 40px;
+}
+button:hover {
+  background-color: #b9b9b9;
+}
+button[disabled]{
+  background:#DCDCDC;
+  cursor:not-allowed; /* 禁止カーソル */
+}
+
+input[type="submit"] {
+	appearance: none;
+  -webkit-appearance: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 86%;
+  line-height: 1.0em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #37a1e5;
+}
+input[type=submit]:hover {
+    background-color: #2392d8;
+}
+
+.js-close{
+  padding: 10px 20px;
+  font-size: 86%;
+  line-height: 1.0em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.flex{
+  margin: 30px;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  /* padding: 20px; */
+}
+
+/* サクセス or エラーメッセージ */
+
+.success_message {
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #48b400;
+    border-radius: 10px;
+    border: 1px solid #4dc100;
+}
+.error_message {
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #ef072d;
+    list-style-type: none;
+    border-radius: 10px;
+    border: 1px solid #ff5f79;
+}
+.success_message,
+.error_message li {
+    font-size: 86%;
+    line-height: 1.6em;
+}
+
+
+
+/* モーダルウィンドウ */
+.modal-window {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 500px;
+  background-color: #dfdddd;
+  border-radius: 5px;
+  z-index: 11;
+  padding: 2rem;
+}
+
+/* オーバーレイ */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.confirm{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+table{
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: initial;
+}
+
+table th{
+  border-bottom: solid 1px rgb(56, 56, 56);
+  padding: 10px 0;
+}
+
+table td{
+  border-bottom: solid 1px rgb(56, 56, 56);
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+@media screen and ( max-width:1000px){
+  /* この中にタブレットサイズ以下のスタイル */
+  body {
+    padding: 30px 5%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  select{
+    width: 100%;
+  }
+  .container {
+    position: relative;
+    width: 100%;
+  }
+}
