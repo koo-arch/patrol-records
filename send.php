@@ -98,6 +98,7 @@
       $error[] = "大学PC利用者数に正しい数値が入力されていません";
     }
   } else {
+    $own = 0;
     $isOwn = false;
   }
 
@@ -114,13 +115,12 @@
 ?>
 
 <?php
-  header("Content-type: application/json; charset=UTF-8");
-  $isSubmited = $isTimetab && $isPlace && $isPCtype && $isPCnum && $isUniv && $isOwn && $isRoom;
-  if ($isSubmited){
+  if (count($error) > 0){
+    $_SESSION["error"] = $error;
+    header("Location:form.php");
+    exit();
+  } else {
     $list = array('true',$timetable,$place,$room,$pcnum,$univ,$own);
     echo json_encode($list);
-  } else {
-    echo json_encode($error);
-    $SESSION["error"] = $error;
   }
 ?>
