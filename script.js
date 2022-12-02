@@ -65,6 +65,29 @@ for (let i = 0; i < keyArray.length; i++) {
     typeArray[keyArray[i]] = typeArray[keyArray[i]].concat(array1);
 }
 
+
+
+console.log(typeArray);
+const placeSelects = document.getElementById('place');
+const PCtypeSelects = document.getElementById('PCtype');
+
+placeSelects.addEventListener('input' , () => {
+    const options = document.querySelectorAll('#PCtype > option');
+    options.forEach(option => {
+        option.remove();
+    });
+
+    const firstSelect = document.createElement('option');
+    firstSelect.textContent = '選択';
+    firstSelect.value = '選択';
+
+    
+
+})
+
+
+
+
 // 場所のセレクトボックスを選択した時に動作
 document.getElementsByName('place')[0].onchange = function () {
     const place = this.value;
