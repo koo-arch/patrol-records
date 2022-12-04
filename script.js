@@ -32,17 +32,31 @@ function counter(up, down, text, reset) {
 }
 
 
+// keyArray配列の重複部分の削除
+const optArray = placeArray.filter(function (x, i, self) {
+    return self.indexOf(x) === i;
+});
+
+const subCategories = new Array();
+for (let i = 0; placeArray.length; i++) {
+    subCategories[i] = { place: '', type: '', pcnum: ''};
+}
+for (let i = 0; placeArray.length; i++) {
+    subCategories[i].place = placeArray[i];
+    subCategories[i].type = typeArray[i];
+    subCategories[i].type = pcnumArray[i];
+}
+
+console.log(subCategories);
+
+
 // 利用可能PC数の連想配列
 let pcnumDict = {};
 for (let i = 0; i < pcnumArray.length; i++) {
-    let pcnum_key = keyArray[i] + valueArray[i];
+    let pcnum_key = placeArray[i] + typeArray[i];
     pcnumDict[pcnum_key] = pcnumArray[i];
 }
 
-// keyArray配列の重複部分の削除
-let optArray = keyArray.filter(function (x, i, self) {
-    return self.indexOf(x) === i;
-});
 
 const select = document.getElementById('place');
 
@@ -54,79 +68,40 @@ for (let i = 0; i < optArray.length; i++) {
     select.appendChild(op);
 }
 
-let typeArray = { "": ["選択"] };
 
-for (let i = 0; i < keyArray.length; i++) {
-    typeArray[keyArray[i]] = ['選択'];
-}
-for (let i = 0; i < keyArray.length; i++) {
-    let array1 = [];
-    array1.push(valueArray[i])
-    typeArray[keyArray[i]] = typeArray[keyArray[i]].concat(array1);
-}
-
-
-
-console.log(typeArray);
 const placeSelects = document.getElementById('place');
 const PCtypeSelects = document.getElementById('PCtype');
+const PCnum = document.getElementById('pcnum');
 
 placeSelects.addEventListener('input' , () => {
+
+    // 形式のプルダウンをリセット
     const options = document.querySelectorAll('#PCtype > option');
     options.forEach(option => {
         option.remove();
     });
 
+
+    // 形式のプルダウンに「選択」を加える
     const firstSelect = document.createElement('option');
     firstSelect.textContent = '選択';
-    firstSelect.value = '選択';
 
-    
+    // 形式を選択可能にする
+    PCtypeSelects.disabled = false;
 
-})
-
-
-
-
-// 場所のセレクトボックスを選択した時に動作
-document.getElementsByName('place')[0].onchange = function () {
-    const place = this.value;
-    const elm = document.getElementsByName('PCtype')[0];
-    elm.options.length = 0;
-    // 選択に応じて形式のセレクトボックスの内容が変化
-    for (let i = 0; i < typeArray[place].length; i++) {
-        const op = document.createElement('option');
-        op.value = place + typeArray[place][i];
-        op.textContent = typeArray[place][i];
-        elm.appendChild(op);
+    if (placeSelects.value == '選択') {
+        PCtypeSelects.disabled = true;
+        return;
     }
 
-    const elm2 = document.getElementById('pcnum');
-    elm2.value = '';
-};
-
-// 形式のセレクトボックスを選択したときに動作
-document.getElementsByName('PCtype')[0].onchange = function () {
-    const PCtype = this.value;
-    const elm = document.getElementsByName('pcnum')[0];
-    if (PCtype.includes('選択')) {
-        elm.value = '';
-    } else {
-        elm.value = pcnumDict[PCtype];
-    }
-    if (this.value === '西2実習室') {
-        document.querySelectorAll("div#count_own button").forEach(e => e.disabled = false);
-        document.querySelectorAll("div#count_own input").forEach(e => e.disabled = false);
-    } else {
-        document.getElementById('reset2').click();
-        document.querySelectorAll("div#count_own button").forEach(e => e.disabled = true);
-        document.querySelectorAll("div#count_own input").forEach(e => e.disabled = true);
-    }
-};
-
-window.addEventListener('DOMContentLoaded', function () {
-    document.getElementsByName('place')[0].onchange();
-    document.getElementsByName('PCtype')[0].onchange();
+    // 場所にある形式のみを選択肢に設定
+    subCategories.forEach(subCategory => {
+        if (placeSelects.value == subCategory.place) {
+            const option = document.createElement('option');
+            option.textContent = subCategory.type;
+            PCnum.value = subCategory.pcnum;
+        }
+    });
 });
 
 counter('up1', 'down1', 'univ', 'reset1');
