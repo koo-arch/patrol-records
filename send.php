@@ -13,7 +13,7 @@
 
 <?php
 // エラーチェック
-  session_start();
+  session_summary();
 
   // エラーを入れる配列
   $error = [];
@@ -46,7 +46,7 @@
     }
   } else {
     // POSTされた値が無いとき
-    $isTimetab = false;
+    $isPlace = false;
   }
 
   // POSTされた「形式」を取り出す
@@ -62,6 +62,7 @@
     }
   } else {
     // POSTされた値が無いとき
+    $error[] = "形式の選択にエラーがありました";
     $isPCtype = false;
   }
 
@@ -102,25 +103,18 @@
     $isOwn = false;
   }
 
-  $placeLen = mb_strlen($place);
-  $str = mb_substr($PCtype,0,$placeLen);
-  if ($place === $str){
-    $room = mb_substr($PCtype,$placeLen);
-    $isRoom = True;
-  } else {
-    $room = "error";
-    $error[] = '場所の選択でエラーが発生しました';
-    $isRoom = false;
-  }
 ?>
 
 <?php
   if (count($error) > 0){
     $_SESSION["error"] = $error;
-    header("Location:form.php");
+    header("Location:patrol.php");
     exit();
   } else {
-    $list = array('true',$timetable,$place,$room,$pcnum,$univ,$own);
+    $list = array('true',$timetable,$place,$PCtype,$pcnum,$univ,$own);
     echo json_encode($list);
   }
+
+  $chkno = $_SESSION["chkno"];
+  require 'confirm.php';
 ?>

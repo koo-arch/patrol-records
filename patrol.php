@@ -1,6 +1,6 @@
 <?php 
-  session_start();
   require_once 'function.php';
+  session_summary();
   // DB接続
   require 'secret.php';
 
@@ -29,7 +29,7 @@
       $pcnumArray_key[] = $placeArray[$i].$roomtypeArray[$i];
     }
 
-    $_SESSION['PCtypeVal'] = $pcnumArray_key;
+    $_SESSION['PCtypeVal'] = $roomtypeArray;
     $pcnumkey_json = json_encode($pcnumArray_key);
     
     $placeArray = array_unique($placeArray); //重複を削除
@@ -89,5 +89,5 @@
     $_SESSION["chkno"] = $chkno = mt_rand();
   }
 
-
+require 'form.php';
 ?>

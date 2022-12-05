@@ -1,7 +1,5 @@
-<?php require 'patrol.php' ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>巡回表</title>
     <meta charset='utf-8'>
@@ -16,7 +14,8 @@
     <p class="success_message"><?php echo $success; ?></p>
     <?php endif; ?>
     <?php if(isset($_SESSION["error"])): 
-      $error = $_SESSION["error"]
+      $error = $_SESSION["error"];
+      unset($_SESSION["error"]);
     ?>
         <ul class="error_message">
         <?php foreach( $error as $value ): ?>
@@ -25,7 +24,7 @@
         </ul>
     <?php endif; ?>
 
-    <form method="POST" action="confirm.php">
+    <form method="POST" action="send.php">
 
       <div>
         <label for="timetable">時限</label> 
@@ -46,14 +45,15 @@
         <label for="place">場所</label>
         <div class="container">
           <select name="place" id="place">
-            <option value="">場所を選択</option>
+            <option>場所を選択</option>
           </select>
         </div>
       </div>
       <div>
         <label for="PCtype">形式</label>
         <div class="container">
-          <select name="PCtype" id="PCtype">
+          <select name="PCtype" id="PCtype" disabled>
+            <option>選択</option>
           </select>
         </div>
       </div>
@@ -88,8 +88,8 @@
   // DBから取り出した利用可能PC数の配列
   let pcnumArray = JSON.parse('<?php echo $pcnum_json ?>');
   // keyが「場所」の部分の値を取り出し、配列に格納
-  let keyArray = JSON.parse('<?php echo $place_json ?>');
+  let placeArray = JSON.parse('<?php echo $place_json ?>');
   // keyが「形式」の部分の値を取り出し、配列に格納
-  let valueArray = JSON.parse('<?php echo $roomtype_json ?>');
+  let typeArray = JSON.parse('<?php echo $roomtype_json ?>');
 </script>
 <script src='script.js'></script>

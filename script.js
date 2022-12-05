@@ -31,48 +31,46 @@ function counter(up, down, text, reset) {
     });
 }
 
+const Length = placeArray.length;
 
 // keyArray配列の重複部分の削除
 const optArray = placeArray.filter(function (x, i, self) {
     return self.indexOf(x) === i;
 });
 
-const subCategories = new Array();
-for (let i = 0; placeArray.length; i++) {
-    subCategories[i] = { place: '', type: '', pcnum: ''};
+// 場所、形式を格納するオブジェクトの定義
+const placeInfos = new Array(Length);
+for (let i = 0; i < Length; i++) {
+    placeInfos[i] = { place: '', type: ''};
 }
-for (let i = 0; placeArray.length; i++) {
-    subCategories[i].place = placeArray[i];
-    subCategories[i].type = typeArray[i];
-    subCategories[i].type = pcnumArray[i];
-}
-
-console.log(subCategories);
-
-
-// 利用可能PC数の連想配列
-let pcnumDict = {};
-for (let i = 0; i < pcnumArray.length; i++) {
-    let pcnum_key = placeArray[i] + typeArray[i];
-    pcnumDict[pcnum_key] = pcnumArray[i];
+for (let i = 0; i < Length; i++) {
+    placeInfos[i].place = placeArray[i];
+    placeInfos[i].type = typeArray[i];
 }
 
-
-const select = document.getElementById('place');
-
-// id='place'の部分にセレクトボックスの要素を追加
-for (let i = 0; i < optArray.length; i++) {
-    let op = document.createElement('option');
-    op.value = optArray[i];
-    op.textContent = optArray[i];
-    select.appendChild(op);
+// 教室と利用可能PC台数の格納
+const PCnums = new Array(Length);
+for (let i = 0; i < Length; i++) {
+    PCnums[i] = { room: '', pcnum: 0 }
 }
-
+for (let i = 0; i < Length; i++) {
+    PCnums[i].room = placeArray[i] + typeArray[i];
+    PCnums[i].pcnum = pcnumArray[i];
+}
 
 const placeSelects = document.getElementById('place');
 const PCtypeSelects = document.getElementById('PCtype');
 const PCnum = document.getElementById('pcnum');
 
+// id='place'の部分にセレクトボックスの要素を追加
+optArray.forEach(place => {
+    const option = document.createElement('option');
+    option.textContent = place;
+
+    placeSelects.appendChild(option);
+});
+
+// 場所が選択された時に形式のプルダウンを生成
 placeSelects.addEventListener('input' , () => {
 
     // 形式のプルダウンをリセット
@@ -85,23 +83,47 @@ placeSelects.addEventListener('input' , () => {
     // 形式のプルダウンに「選択」を加える
     const firstSelect = document.createElement('option');
     firstSelect.textContent = '選択';
+    PCtypeSelects.appendChild(firstSelect);
 
     // 形式を選択可能にする
     PCtypeSelects.disabled = false;
 
-    if (placeSelects.value == '選択') {
+    if (placeSelects.value == '場所を選択') {
         PCtypeSelects.disabled = true;
         return;
     }
 
     // 場所にある形式のみを選択肢に設定
-    subCategories.forEach(subCategory => {
-        if (placeSelects.value == subCategory.place) {
+    placeInfos.forEach(placeInfo => {
+        if (placeSelects.value == placeInfo.place) {
             const option = document.createElement('option');
-            option.textContent = subCategory.type;
-            PCnum.value = subCategory.pcnum;
+            option.textContent = placeInfo.type;
+            PCtypeSelects.appendChild(option);
         }
     });
+});
+
+// 形式が選択された時に対応するPC台数が入力
+PCtypeSelects.addEventListener('input' , () => {
+
+    const roomName = placeSelects.value + PCtypeSelects.value
+    // 利用可能PC台数の初期化
+    PCnum.value = '';
+    // 選択された場所、形式に対応するPC台数の表示
+    PCnums.forEach(num => {
+        if (roomName == num.room) {
+            PCnum.value = num.pcnum;
+        }
+    });
+
+    if (roomName === '西2実習室') {
+        document.querySelectorAll("div#count_own button").forEach(e => e.disabled = false);
+        document.querySelectorAll("div#count_own input").forEach(e => e.disabled = false);
+    } else {
+        document.querySelectorAll("div#count_own button").forEach(e => e.disabled = true);
+        document.querySelectorAll("div#count_own input").forEach(e => e.disabled = true);
+    }
+
 });
 
 counter('up1', 'down1', 'univ', 'reset1');
