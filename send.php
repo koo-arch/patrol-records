@@ -110,11 +110,8 @@
     $_SESSION["error"] = $error;
     header("Location:patrol.php");
     exit();
-  } else {
-    $list = array('true',$timetable,$place,$PCtype,$pcnum,$univ,$own);
-    echo json_encode($list);
   }
-
+  
   $chkno = $_SESSION["chkno"];
   require 'confirm.php';
 ?>
