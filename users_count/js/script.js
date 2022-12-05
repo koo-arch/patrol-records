@@ -73,6 +73,7 @@ optArray.forEach(place => {
 // 場所が選択された時に形式のプルダウンを生成
 placeSelects.addEventListener('input' , () => {
 
+    PCnum.value = '';
     // 形式のプルダウンをリセット
     const options = document.querySelectorAll('#PCtype > option');
     options.forEach(option => {
