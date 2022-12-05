@@ -4,8 +4,8 @@
     <title>巡回表</title>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <h1>巡回表</h1>
@@ -92,4 +92,4 @@
   // keyが「形式」の部分の値を取り出し、配列に格納
   let typeArray = JSON.parse('<?php echo $roomtype_json ?>');
 </script>
-<script src='../js/script.js'></script>
+<script src='js/script.js'></script>
