@@ -106,7 +106,7 @@ placeSelects.addEventListener('input' , () => {
 // 形式が選択された時に対応するPC台数が入力
 PCtypeSelects.addEventListener('input' , () => {
 
-    const roomName = placeSelects.value + PCtypeSelects.value
+    const roomName = placeSelects.value + PCtypeSelects.value;
     // 利用可能PC台数の初期化
     PCnum.value = '';
     // 選択された場所、形式に対応するPC台数の表示
