@@ -13,7 +13,7 @@
 
 <?php
 // エラーチェック
-  session_summary();
+  session_start();
 
   // エラーを入れる配列
   $error = [];

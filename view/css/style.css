@@ -1,0 +1,60 @@
+/* common css */
+html {
+    touch-action: manipulation;
+    height: 100%;
+}
+
+body {
+    padding: 50px;
+    font-size: 100%;
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    color: #222;
+    background: #f7f7f7;
+}
+
+a {
+    color: #007edf;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 100%;
+    color: #222;
+    text-align: center;
+}
+
+/* セレクトボックス */
+
+select {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 86%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    width: 200px;
+}
+
+.container {
+    position: relative;
+    width: 200px;
+}
+
+.container:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    transform: translateY(-50%) rotate(-135deg);
+    font-size: 20px;
+    pointer-events: none;
+}

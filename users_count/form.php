@@ -62,19 +62,19 @@
         <label for="pcnum">利用可能PC台数</label>
         <input type='text' name="pcnum" id="pcnum" readonly>
       </div>
-      <div>
-        <label for="univ">大学PC利用者数</label>
-        <button id='up1' type="button" >+</button>
-        <input type='text' value=0 id="univ" name='univ'>
-        <button id='down1' type="button">-</button>
-        <button id='reset1' type="button">リセット</button>
-      </div>
-      <div id="count_own">
-        <label for="own">私物PC利用者数</label>
-        <button id='up2' type="button">+</button>
-        <input type='text' value=0 id="own" name='own'>
-        <button id='down2' type="button">-</button>
-        <button id='reset2' type="button">リセット</button>
+      <div class="flex">
+        <div>
+          <label for="univ">大学PC利用者数</label><button id='reset1' type="button">リセット</button>
+          <button id='up1' type="button" >+</button>
+          <input type='text' value=0 id="univ" name='univ'>
+          <button id='down1' type="button">-</button>
+        </div>
+        <div id="count_own">
+          <label for="own">私物PC利用者数</label><button id='reset2' type="button">リセット</button>
+          <button id='up2' type="button">+</button>
+          <input type='text' value=0 id="own" name='own'>
+          <button id='down2' type="button">-</button>
+        </div>
       </div>
 
       <p class="more"><input id="send" type="submit" value="送る"></p>
