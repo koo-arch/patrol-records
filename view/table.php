@@ -1,5 +1,6 @@
 <?php
     require_once '../function.php';
+    require_once '../escape.php';
     // DB接続
     require '../secret.php';
 
