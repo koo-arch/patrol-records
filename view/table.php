@@ -1,7 +1,7 @@
 <?php
-    require_once '../users_count/function.php';
+    require_once '../function.php';
     // DB接続
-    require '../users_count/secret.php';
+    require '../secret.php';
 
     if (isSet($_POST["submit"])) {
         $year = $_POST["year"];

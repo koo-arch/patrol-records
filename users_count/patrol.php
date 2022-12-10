@@ -1,8 +1,8 @@
 <?php 
-  require_once 'function.php';
+  require_once '../function.php';
   session_start();
   // DB接続
-  require 'secret.php';
+  require '../secret.php';
 
   try{
     $dbh = new PDO($dsn, $user, $pass);
