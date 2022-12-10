@@ -6,12 +6,20 @@ html {
 }
 
 body {
-	padding: 50px;
-	font-size: 100%;
-	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-	color: #222;
-	background: #f7f7f7;
+	background: #bebebe;
 }
+
+.inner {
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 768px;
+  font-size: 100%;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  color: #222;
+  background: #f7f7f7;
+  box-shadow: 0 0 8px gray;
+}
+
 a {
     color: #007edf;
     text-decoration: none;
@@ -40,7 +48,7 @@ input[type="text"] {
   border: 1px solid #ddd;
   border-radius: 3px;
   background: #fff;
-  width: 200px;
+  width: 100%;
 }
 input[type="text"][disabled]{
   background:#DCDCDC;
@@ -56,11 +64,11 @@ select{
   border: 1px solid #ddd;
   border-radius: 3px;
   background: #fff;
-  width: 200px;
+  width: 100%;
 }
 .container {
   position: relative;
-  width: 200px;
+  width: 100%;
 }
 .container:after {
   content: "";
@@ -168,8 +176,9 @@ input[type=submit]:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 500px;
+  max-width: 461px;
+  width: 60%;
+  height: 500px;;
   background-color: #dfdddd;
   border-radius: 5px;
   z-index: 11;
@@ -211,12 +220,12 @@ table td{
 }
 
 
-@media screen and ( max-width:1000px){
+@media screen and ( max-width:768px){
   /* この中にタブレットサイズ以下のスタイル */
-  body {
+  .inner {
     padding: 30px 5%;
   }
-
+  
   input[type="text"] {
     width: 100%;
   }
