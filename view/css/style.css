@@ -141,10 +141,6 @@ table {
     border-bottom: solid 1px #778ca3;
     color: #ffffff;
 }
-/* 
-.content-table th:last-child {
-    border-right: none;
-} */
 
 .content-table td:first-child {
     border-left: none;

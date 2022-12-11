@@ -62,18 +62,24 @@
           <label for="pcnum">利用可能PC台数</label>
           <input type='text' name="pcnum" id="pcnum" readonly>
         </div>
-        <div class="flex">
+        <div>
           <div>
-            <label for="univ">大学PC利用者数</label><button id='reset1' type="button">リセット</button>
-            <button id='up1' type="button" >+</button>
-            <input type='text' value=0 id="univ" name='univ'>
-            <button id='down1' type="button">-</button>
+            <label for="univ">大学PC利用者数</label>
+            <div class="button-flex">
+              <button id='up1' type="button" >+</button>
+              <input type='text' value=0 id="univ" name='univ'>
+              <button id='down1' type="button">-</button>
+            </div>
+            <button id='reset1' type="button">リセット</button>
           </div>
           <div id="count_own">
-            <label for="own">私物PC利用者数</label><button id='reset2' type="button">リセット</button>
-            <button id='up2' type="button">+</button>
-            <input type='text' value=0 id="own" name='own'>
-            <button id='down2' type="button">-</button>
+            <label for="own">私物PC利用者数</label>
+            <div class="button-flex">
+              <button id='up2' type="button">+</button>
+              <input type='text' value=0 id="own" name='own'>
+              <button id='down2' type="button">-</button>
+            </div>
+            <button id='reset2' type="button">リセット</button>
           </div>
         </div>
   

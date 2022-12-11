@@ -55,6 +55,22 @@ input[type="text"][disabled]{
   cursor:not-allowed; /* 禁止カーソル */
 }
 
+#univ, #own {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 86%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  width: 100%;
+}
+
+#own[disabled] {
+  background: #DCDCDC;
+  cursor: not-allowed;
+  /* 禁止カーソル */
+}
+
 /* セレクトボックス */
 
 select{
@@ -90,6 +106,7 @@ select{
 
 button{
   font-size: 86%;
+  margin-bottom: 20px;
   border: 1px solid #ddd;
   cursor: pointer;
   border-radius: 3px;
@@ -109,6 +126,12 @@ button:hover {
 button[disabled]{
   background:#DCDCDC;
   cursor:not-allowed; /* 禁止カーソル */
+}
+
+.button-flex {
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 
 input[type="submit"] {
