@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>電子巡回表</title>
+    <title>巡回記録</title>
 </head>
 <body>
     <div class="inner">
-        <h1>巡回記録</h1>
+        <h1>電子巡回表</h1>
         <div class="tab-flex">
             <a id="users" href="../users_count/patrol.php">利用人数登録</a>
             <a id="records" tabindex="-1">巡回記録</a>
