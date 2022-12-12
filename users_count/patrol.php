@@ -86,8 +86,9 @@
     } else {
     }
     // 新しいトークンをセット
-    $_SESSION["chkno"] = $chkno = mt_rand();
+    $chkno = mt_rand();
+    $_SESSION["chkno"] = $chkno;
   }
 
-require 'form.php';
+  require_once 'form.php';
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>巡回表</title>
+    <title>利用人数登録</title>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/reset.css">
@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="inner">
-      <h1>巡回表</h1>
+      <h1>電子巡回表</h1>
       <div class="tab-flex">
         <a id="users" tabindex="-1">利用人数登録</a>
         <a id="records"  href="../view/table.php">巡回記録</a>
@@ -18,7 +18,7 @@
       <?php if( $success != "" ): ?>
       <p class="success_message"><?php echo $success; ?></p>
       <?php endif; ?>
-      <?php if(isset($_SESSION["error"])): 
+      <!-- <?php if(isset($_SESSION["error"])): 
         $error = $_SESSION["error"];
         unset($_SESSION["error"]);
       ?>
@@ -27,7 +27,7 @@
                   <li>・<?php echo $value; ?></li>
           <?php endforeach; ?>
           </ul>
-      <?php endif; ?>
+      <?php endif; ?> -->
   
       <form method="POST">
         <div>
@@ -119,7 +119,7 @@
                 <th>私物PC利用者数</th><td id="res_own" ></td>
               </tr>
             </table>
-            <input type="hidden" name="chkno" value="<?php echo $chkno; ?>">
+            <input type="hidden" name="chkno" value="<?php echo $_SESSION["chkno"]; ?>">
             <input type="hidden" name="res_time">
             <input type="hidden" name="res_place">
             <input type="hidden" name="res_room">
