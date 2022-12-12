@@ -35,6 +35,36 @@ h1 {
     text-align: center;
 }
 
+label {
+    /* display: block; */
+    margin-bottom: 7px;
+    font-size: 86%;
+}
+
+/* タブ */
+#users, #records {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#records {
+    border-bottom: none;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+#users {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.tab-flex {
+    display: flex;
+}
+
 /* ラベル */
 .date {
     display: block;
@@ -90,7 +120,7 @@ select {
     pointer-events: none;
 }
 
-.flex {
+.select-flex {
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
@@ -98,6 +128,9 @@ select {
 
 /* ボタン */
 input[type="submit"] {
+    width: 100%;
+    margin: 0 5%;
+    margin-bottom: 20px;
     appearance: none;
     -webkit-appearance: none;
     padding: 10px 20px;
@@ -108,13 +141,55 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     background-color: #37a1e5;
+    text-align: center;
 }
 
 input[type=submit]:hover {
     background-color: #2392d8;
 }
 
+#reset {
+    width: 100%;
+    margin: 0 10%;
+    margin-bottom: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    font-size: 86%;
+    line-height: 1.0em;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    text-align: center;
+    
+}
+
+#reset:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.search {
+    background: #fff;
+}
+
+.choice {
+    margin: 30px;
+}
+
+.button-flex {
+    display: flex;
+    margin: 0px;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
 /* 表 */
+
+#table-name {
+    font-size: 100%;
+    margin-bottom: 10px;
+}
 
 table {
     border-radius: 3px;

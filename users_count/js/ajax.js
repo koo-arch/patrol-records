@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('#send').click(function () {
+    $('#confirm').click(function () {
 
         //postメソッドで送るデータを定義 var data = {パラメータ名 : 値};
         var data = {

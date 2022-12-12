@@ -27,17 +27,38 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
 h1 {
-	  margin-bottom: 30px;
-    font-size: 100%;
-    color: #222;
-    text-align: center;
+  margin-bottom: 30px;
+  font-size: 100%;
+  color: #222;
+  text-align: center;
 }
 
+/* タブ */
+#users, #records {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+#users {
+  border-bottom: none;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#records {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.tab-flex {
+  display: flex;
+}
 /* テキストボックス周辺 */
 
 label {
-  display: block;
+  /* display: block; */
   margin-bottom: 7px;
   font-size: 86%;
 }
@@ -106,7 +127,6 @@ select{
 
 button{
   font-size: 86%;
-  margin-bottom: 20px;
   border: 1px solid #ddd;
   cursor: pointer;
   border-radius: 3px;
@@ -116,9 +136,21 @@ button{
 }
 #up1,#up2{
   width: 40px;
+  margin-bottom: 20px;
 }
 #down1,#down2{
   width: 40px;
+  margin-bottom: 20px;
+}
+#reset1, #reset2{
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  color: rgb(59, 47, 232);
+  font-size: 86%;
+  border: none;
+  background: #f7f7f7;;
+  padding: 0;
 }
 button:hover {
   background-color: #b9b9b9;
@@ -150,6 +182,11 @@ input[type=submit]:hover {
     background-color: #2392d8;
 }
 
+#confirm {
+  width: 100%;
+  text-align: center;
+}
+
 .js-close{
   padding: 10px 20px;
   font-size: 86%;
@@ -164,7 +201,6 @@ input[type=submit]:hover {
   display: flex;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  /* padding: 20px; */
 }
 
 /* サクセス or エラーメッセージ */

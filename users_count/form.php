@@ -3,13 +3,17 @@
   <head>
     <title>巡回表</title>
     <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <div class="inner">
       <h1>巡回表</h1>
+      <div class="tab-flex">
+        <a id="users" tabindex="-1">利用人数登録</a>
+        <a id="records"  href="../view/table.php">巡回記録</a>
+      </div>
       <div id="message"></div>
       <?php if( $success != "" ): ?>
       <p class="success_message"><?php echo $success; ?></p>
@@ -64,26 +68,26 @@
         </div>
         <div>
           <div>
-            <label for="univ">大学PC利用者数</label>
+            <label>大学PC利用者数</label>
+            <button id='reset1' type="button">リセット</button>
             <div class="button-flex">
               <button id='up1' type="button" >+</button>
               <input type='text' value=0 id="univ" name='univ'>
               <button id='down1' type="button">-</button>
             </div>
-            <button id='reset1' type="button">リセット</button>
           </div>
           <div id="count_own">
-            <label for="own">私物PC利用者数</label>
+            <label>私物PC利用者数</label>
+            <button id='reset2' type="button">リセット</button>
             <div class="button-flex">
               <button id='up2' type="button">+</button>
               <input type='text' value=0 id="own" name='own'>
               <button id='down2' type="button">-</button>
             </div>
-            <button id='reset2' type="button">リセット</button>
           </div>
         </div>
   
-        <p class="more"><input id="send" type="submit" value="送る"></p>
+        <input id="confirm" type="submit" value="入力確認">
   
         
       </form>
@@ -124,7 +128,7 @@
             <input type="hidden" name="res_own">
             <div class="flex">
               <button type="button" class="js-close button-close">修正</button>
-              <input type="submit" class="" value="送信">
+              <input type="submit" class="send" value="送信">
             </div>
           </form>
         </div>
