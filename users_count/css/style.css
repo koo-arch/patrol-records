@@ -43,6 +43,7 @@ h1 {
   border: 1px solid #ddd;
 }
 #users {
+  color: black;
   border-bottom: none;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
@@ -237,7 +238,7 @@ input[type=submit]:hover {
   transform: translate(-50%, -50%);
   max-width: 461px;
   width: 60%;
-  height: 500px;;
+  height: 500px;
   background-color: #dfdddd;
   border-radius: 5px;
   z-index: 11;
@@ -285,6 +286,9 @@ table td{
     padding: 30px 5%;
   }
   
+  .modal-window {
+    width: 75%
+  }
   input[type="text"] {
     width: 100%;
   }
@@ -296,4 +300,9 @@ table td{
     position: relative;
     width: 100%;
   }
+}
+@media screen and (max-width:550px) {
+  .modal-window {
+      width: 90%
+    }
 }

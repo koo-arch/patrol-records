@@ -50,6 +50,7 @@ label {
 }
 
 #records {
+    color: black;
     border-bottom: none;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
