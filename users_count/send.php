@@ -98,6 +98,7 @@
 ?>
 
 <?php
+  header('Content-Type: application/json');
   if (count($error) > 0){
     echo json_encode($error);
     $_SESSION["error"] = $error;

@@ -58,8 +58,11 @@ $(document).ready(function () {
 
             },
             //Ajax通信が失敗した場合のメッセージ
-            error: function () {
-                alert('メールの送信が失敗しました。');
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert('通信エラーが発生しました。');
+                console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+                console.log("textStatus     : " + textStatus);
+                console.log("errorThrown    : " + errorThrown.message);
             }
         });
         return false;
