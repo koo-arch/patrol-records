@@ -25,4 +25,11 @@
     }
     return $result;
   }
+
+  function session_summary() {
+    session_start();
+    header('Expires: -1');
+    header('Cache-Control:');
+    header('Pragma:');
+  }
 ?>

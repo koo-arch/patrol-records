@@ -5,7 +5,7 @@
 
 <?php
 // エラーチェック
-  session_start();
+  session_summary();
 
   // エラーを入れる配列
   $error = [];

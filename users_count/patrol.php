@@ -1,6 +1,6 @@
 <?php 
   require_once '../function.php';
-  session_start();
+  session_summary();
   // DB接続
   require '../secret.php';
 
