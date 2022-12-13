@@ -97,7 +97,7 @@
   
         <!-- モーダルウィンドウ -->
         <div class="modal-window">
-          <form method="POST" action="<?php echo es($_SERVER['PHP_SELF']); ?>">
+          <form method="POST" action="<?php echo es('send.php'); ?>">
             <p class="confirm">入力内容確認</p>
             <table>
               <tr>

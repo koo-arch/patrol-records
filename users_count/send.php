@@ -98,12 +98,12 @@
 ?>
 
 <?php
-  header('Content-Type: application/json');
   if (count($error) > 0){
-    echo json_encode($error);
     $_SESSION["error"] = $error;
-  } else {
-    $list = array('true',$timetable,$place,$PCtype,$pcnum,$univ,$own);
-    echo json_encode($list);
+    header("Location:patrol.php");
+    exit();
   }
+  
+  $chkno = $_SESSION["chkno"];
+  require_once 'confirm.php';
 ?>
