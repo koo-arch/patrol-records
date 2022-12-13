@@ -18,7 +18,7 @@
       <?php if( $success != "" ): ?>
       <p class="success_message"><?php echo $success; ?></p>
       <?php endif; ?>
-      <!-- <?php if(isset($_SESSION["error"])): 
+      <?php if(isset($_SESSION["error"])): 
         $error = $_SESSION["error"];
         unset($_SESSION["error"]);
       ?>
@@ -27,9 +27,9 @@
                   <li>・<?php echo $value; ?></li>
           <?php endforeach; ?>
           </ul>
-      <?php endif; ?> -->
+      <?php endif; ?>
   
-      <form method="POST">
+      <form method="POST" action="send.php">
         <div>
           <label for="timetable">時限</label> 
           <div  class="container">
@@ -91,48 +91,6 @@
   
         
       </form>
-      <div>
-        <!-- オーバーレイ -->
-        <div id="overlay" class="overlay"></div>
-  
-        <!-- モーダルウィンドウ -->
-        <div class="modal-window">
-          <form method="POST" action="<?php echo es('send.php'); ?>">
-            <p class="confirm">入力内容確認</p>
-            <table>
-              <tr>
-                <th>時限</th><td id="res_time" ></td>
-              </tr>
-              <tr>
-                <th>場所</th><td id="res_place" ></td>
-              </tr>
-              <tr>
-                <th>形式</th><td id="res_room" ></td>
-              </tr>
-              <tr>
-                <th>利用可能PC台数</th><td id="res_num" ></td>
-              </tr>
-              <tr>
-                <th>大学PC利用者数</th><td id="res_univ" ></td>
-              </tr>
-              <tr>
-                <th>私物PC利用者数</th><td id="res_own" ></td>
-              </tr>
-            </table>
-            <input type="hidden" name="chkno" value="<?php echo $_SESSION["chkno"]; ?>">
-            <input type="hidden" name="res_time">
-            <input type="hidden" name="res_place">
-            <input type="hidden" name="res_room">
-            <input type="hidden" name="res_num">
-            <input type="hidden" name="res_univ">
-            <input type="hidden" name="res_own">
-            <div class="flex">
-              <button type="button" class="js-close button-close">修正</button>
-              <input type="submit" class="send" value="送信">
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
   </body>
 </html>
@@ -146,6 +104,3 @@
   let typeArray = JSON.parse('<?php echo $roomtype_json ?>');
 </script>
 <script src='js/script.js'></script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src='js/ajax.js'></script>
