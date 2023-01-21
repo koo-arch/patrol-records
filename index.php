@@ -7,15 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css"> 
-    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/common.css"> 
     <title>ログイン</title>
 </head>
 <body>
     <div class="inner">
-        <h1>計算機センター電子巡回表</h1>
+        <h2>計算機センター電子巡回表</h2>
         <?php if ($message != ""): ?>
         <p class="message"><?php echo es($message); ?></p>
-        <?php $_POST = Array(); ?>
         <?php endif; ?>
         <div class="signin">
             <form action="" method="POST">

@@ -1,11 +1,14 @@
+<?php require_once '../judge_login.php'; ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/view.css">
     <title>巡回記録</title>
 </head>
 <body>
@@ -18,8 +21,8 @@
                     <label>表示順</label>
                     <div class="container">
                         <select id="order" name="order">
-                            <option <?php if (isSet($order) && $order === "降順"){echo "selected";}?>>降順</option>
-                            <option <?php if (isSet($order) && $order === "昇順"){echo "selected";}?>>昇順</option>
+                            <option <?php if (isset($order) && $order === "降順"){echo "selected";}?>>降順</option>
+                            <option <?php if (isset($order) && $order === "昇順"){echo "selected";}?>>昇順</option>
                         </select>
                     </div>
                     <div class="select-flex">
@@ -29,7 +32,7 @@
                                 <!-- 西暦のセレクトボックス -->
                                 <option value="">指定なし</option>
                                 <?php for ($i = 2022; $i < 2122; $i++): ?>
-                                <option value="<?php echo $i; ?>" <?php if (isSet($year) && $year == $i){echo "selected";} ?>><?php echo $i; ?>年</option>
+                                <option value="<?php echo $i; ?>" <?php if (isset($year) && $year == $i){echo "selected";} ?>><?php echo $i; ?>年</option>
                                 <?php endfor ?>
                             </select>
                         </div>
@@ -40,7 +43,7 @@
                                 <!-- 月のセレクトボックス -->
                                 <option value="">指定なし</option>
                                 <?php for ($i = 1; $i < 13; $i++): ?>
-                                <option value="<?php echo $i; ?>" <?php if (isSet($month) && $month == $i){echo "selected";} ?>><?php echo $i;?>月</option>
+                                <option value="<?php echo $i; ?>" <?php if (isset($month) && $month == $i){echo "selected";} ?>><?php echo $i;?>月</option>
                                 <?php endfor ?>
                             </select>
                         </div>
@@ -51,7 +54,7 @@
                                 <!-- 日のセレクトボックス -->
                                 <option value="">指定なし</option>
                                 <?php for ($i = 1; $i < 32; $i++): ?>
-                                <option value="<?php echo $i; ?>" <?php if (isSet($day) && $day == $i){echo "selected";} ?>><?php echo $i;?>日</option>
+                                <option value="<?php echo $i; ?>" <?php if (isset($day) && $day == $i){echo "selected";} ?>><?php echo $i;?>日</option>
                                 <?php endfor ?>
                             </select>
                         </div>

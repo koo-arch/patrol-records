@@ -20,16 +20,16 @@ body {
     box-shadow: 0 0 8px gray;
 }
 
-h1 {
+h2 {
     margin-bottom: 30px;
     font-size: 100%;
     color: #222;
     text-align: center;
 }
 
-/* テキストボックス */
+/* テキストボックス周辺 */
+
 label {
-    /* display: block; */
     margin-bottom: 7px;
     font-size: 86%;
 }
@@ -44,6 +44,12 @@ input[type="text"] {
     width: 100%;
 }
 
+input[type="text"][disabled] {
+    background: #DCDCDC;
+    cursor: not-allowed;
+    /* 禁止カーソル */
+}
+
 input[type="password"] {
     margin-bottom: 20px;
     padding: 10px;
@@ -55,9 +61,9 @@ input[type="password"] {
 }
 
 /* ボタン */
+
 input[type="submit"] {
     width: 100%;
-    /* margin: 0 5%; */
     margin-bottom: 20px;
     appearance: none;
     -webkit-appearance: none;
@@ -76,6 +82,57 @@ input[type=submit]:hover {
     background-color: #2392d8;
 }
 
+button {
+    font-size: 86%;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #b9b9b9;
+}
+
+button[disabled] {
+    background: #DCDCDC;
+    cursor: not-allowed;
+    /* 禁止カーソル */
+}
+
+/* セレクトボックス */
+
+select {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 86%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.container:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    transform: translateY(-50%) rotate(-135deg);
+    font-size: 20px;
+    pointer-events: none;
+}
+
 .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -91,25 +148,5 @@ input[type=submit]:hover {
     /* この中にタブレットサイズ以下のスタイル */
     .inner {
         padding: 30px 5%;
-    }
-
-    input[type="text"] {
-        width: 100%;
-    }
-
-    select {
-        width: 100%;
-    }
-
-    .container {
-        position: relative;
-        width: 100%;
-    }
-
-    .container-date {
-        width: 95%;
-    }
-    .content-table {
-        font-size: 60%;
     }
 }

@@ -1,36 +1,3 @@
-// カウンターの関数
-function counter(up, down, text, reset) {
-    const upbutton = document.getElementById(up);
-    const downbutton = document.getElementById(down);
-    const textbox = document.getElementById(text);
-    const resetbutton = document.getElementById(reset);
-
-    // +ボタンクリックで1増える
-    upbutton.addEventListener('click', (event) => {
-        if (isNaN(textbox.value) == true) {
-            textbox.value = 0
-        }
-        textbox.value = Math.floor(textbox.value)
-        textbox.value++;
-    });
-
-    // 値が0以上、-ボタンクリックで1減る
-    downbutton.addEventListener('click', (event) => {
-        if (isNaN(textbox.value) == true) {
-            textbox.value = 0;
-        }
-        textbox.value = Math.floor(textbox.value)
-        if (textbox.value > 0) {
-            textbox.value--;
-        }
-    });
-
-
-    resetbutton.addEventListener('click', (event) => {
-        textbox.value = 0;
-    });
-}
-
 const Length = placeArray.length;
 
 // keyArray配列の重複部分の削除
@@ -41,7 +8,7 @@ const optArray = placeArray.filter(function (x, i, self) {
 // 場所、形式を格納するオブジェクトの定義
 const placeInfos = new Array(Length);
 for (let i = 0; i < Length; i++) {
-    placeInfos[i] = { place: '', type: ''};
+    placeInfos[i] = { place: '', type: '' };
 }
 for (let i = 0; i < Length; i++) {
     placeInfos[i].place = placeArray[i];
@@ -71,7 +38,7 @@ optArray.forEach(place => {
 });
 
 // 場所が選択された時に形式のプルダウンを生成
-placeSelects.addEventListener('input' , () => {
+placeSelects.addEventListener('input', () => {
 
     PCnum.value = '';
     // 形式のプルダウンをリセット
@@ -105,7 +72,7 @@ placeSelects.addEventListener('input' , () => {
 });
 
 // 形式が選択された時に対応するPC台数が入力
-PCtypeSelects.addEventListener('input' , () => {
+PCtypeSelects.addEventListener('input', () => {
 
     const roomName = placeSelects.value + PCtypeSelects.value;
     // 利用可能PC台数の初期化
@@ -126,6 +93,3 @@ PCtypeSelects.addEventListener('input' , () => {
     }
 
 });
-
-counter('up1', 'down1', 'univ', 'reset1');
-counter('up2', 'down2', 'own', 'reset2');

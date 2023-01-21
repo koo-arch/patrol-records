@@ -1,6 +1,7 @@
 <?php 
   session_start();
   require_once '../function.php';
+  require_once '../judge_login.php';
   // DB接続
   require '../secret.php';
 
@@ -46,7 +47,7 @@
   if (isset($_POST["res_time"]) && isset($_POST["res_place"]) && isset($_POST["res_room"]) && isset($_POST["res_num"]) && isset($_POST["res_univ"]) && isset($_POST["res_own"])){
 
     // トークンが一致しているか
-    if (isset($_POST["chkno"]) && isset($_SESSION["chkno"]) && ($_POST["chkno"] === $_SESSION["chkno"])){
+    if (isset($_POST["chkno"]) && isset($_SESSION["chkno"]) && ($_POST["chkno"] == $_SESSION["chkno"])){
 
       $timetable = $_POST["res_time"];
       $place     = $_POST["res_place"];
@@ -82,6 +83,7 @@
       $success = "正常に送信されました";
 
     } else {
+      $error[] = "トークンが一致しません";
     }
   }
   // 新しいトークンをセット

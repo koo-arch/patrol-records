@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    z-index: 100;
 }
 
 .header_bar {
@@ -13,7 +14,7 @@
     top: 0;
     height: 44px;
     padding: 10px;
-    z-index: 90;
+    z-index: 100;
 }
 
 h1 {
@@ -126,3 +127,5 @@ h1 {
     top: 0;
     /*メニューを画面内へ*/
 }
+
+/* ここまでヘッダー */

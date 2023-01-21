@@ -1,37 +1,5 @@
-/* common css */
-html {
-    touch-action: manipulation;
-    height: 100%;
-}
-
-body {
-    background: #bebebe;
-}
-
-.inner {
-    position: relative;
-    z-index: -1;
-    padding: 30px;
-    margin: 0 auto;
-    max-width: 768px;
-    font-size: 100%;
-    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
-    color: #222;
-    background: #f7f7f7;
-    box-shadow: 0 0 8px gray;
-}
-
 h2 {
     margin: 30px 0;
-    font-size: 100%;
-    color: #222;
-    text-align: center;
-}
-
-label {
-    /* display: block; */
-    margin-bottom: 7px;
-    font-size: 86%;
 }
 
 /* ラベル */
@@ -40,35 +8,6 @@ label {
 }
 
 /* セレクトボックス */
-
-select {
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 86%;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    background: #fff;
-    width: 100%;
-}
-
-.container {
-    position: relative;
-    width: 100%;
-}
-
-.container:after {
-    content: "";
-    position: absolute;
-    right: 10px;
-    top: 18px;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid #ccc;
-    border-left: 2px solid #ccc;
-    transform: translateY(-50%) rotate(-135deg);
-    font-size: 20px;
-    pointer-events: none;
-}
 
 .container-date {
     position: relative;
@@ -96,25 +35,10 @@ select {
 }
 
 /* ボタン */
-input[type="submit"] {
-    width: 100%;
-    margin: 0 5%;
-    margin-bottom: 20px;
-    appearance: none;
-    -webkit-appearance: none;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 86%;
-    line-height: 1.0em;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #37a1e5;
-    text-align: center;
-}
 
-input[type=submit]:hover {
-    background-color: #2392d8;
+#send {
+    margin: 0 10%;
+    margin-bottom: 20px;
 }
 
 #reset {
@@ -205,19 +129,6 @@ table {
     /* この中にタブレットサイズ以下のスタイル */
     .inner {
         padding: 30px 5%;
-    }
-
-    input[type="text"] {
-        width: 100%;
-    }
-
-    select {
-        width: 100%;
-    }
-
-    .container {
-        position: relative;
-        width: 100%;
     }
 
     .container-date {

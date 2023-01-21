@@ -1,0 +1,134 @@
+h2 {
+  margin: 30px 0;
+}
+
+/* テキストボックス周辺 */
+
+#univ, #own {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 86%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  width: 100%;
+}
+
+#own[disabled] {
+  background: #DCDCDC;
+  cursor: not-allowed;
+  /* 禁止カーソル */
+}
+
+/* ボタン */
+#up1,#up2{
+  width: 50px;
+  margin-bottom: 20px;
+}
+#down1,#down2{
+  width: 50px;
+  margin-bottom: 20px;
+}
+#reset1, #reset2{
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  color: rgb(59, 47, 232);
+  font-size: 86%;
+  border: none;
+  background: #f7f7f7;;
+  padding: 0;
+}
+
+.button-flex {
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.send {
+  margin: 0 10%;
+  margin-bottom: 20px;
+}
+
+.confirm {
+  width: 100%;
+  text-align: center;
+}
+
+.back {
+  width: 100%;
+  margin: 0 10%;
+  margin-bottom: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  font-size: 86%;
+  line-height: 1.0em;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff;
+  text-align: center;
+
+}
+
+#back:hover {
+  background-color: rgb(233, 233, 233);
+}
+.flex {
+  margin: 30px;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: initial;
+}
+
+table th {
+  border-bottom: solid 1px rgb(56, 56, 56);
+  padding: 10px 0;
+}
+
+table td {
+  border-bottom: solid 1px rgb(56, 56, 56);
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* サクセス or エラーメッセージ */
+
+.success_message {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #48b400;
+    border-radius: 10px;
+    border: 1px solid #4dc100;
+}
+.error_message {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #ef072d;
+    list-style-type: none;
+    border-radius: 10px;
+    border: 1px solid #ff5f79;
+}
+.success_message,
+.error_message li {
+    font-size: 86%;
+    line-height: 1.6em;
+}
+
+@media screen and ( max-width:768px){
+  /* この中にタブレットサイズ以下のスタイル */
+  .inner {
+    padding: 30px 5%;
+  }
+}

@@ -9,7 +9,7 @@
         <!--ここからメニュー-->
         <div class="menu-content">
             <ul>
-                <li class='content_list'><a href="../form/patrol.php">利用人数登録</a></li>
+                <li class='content_list'><a href="../form/register.php">利用人数登録</a></li>
                 <li class='content_list'><a href="../view/table.php">記録表閲覧</a></li>
                 <li class='content_list'><a href="">メニューリンク3</a></li>
                 <li class='logout'><a href="../logout.php">ログアウト</a></li>

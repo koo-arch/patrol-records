@@ -5,9 +5,9 @@
     require_once 'secret.php';
     
     //ログイン状態の場合ログイン後のページにリダイレクト
-    if (isSet($_SESSION["login"])) {
+    if (isset($_SESSION["login"])) {
         session_regenerate_id(TRUE);
-        header("Location: ./users_count/patrol.php");
+        header("Location: ./form/register.php");
         exit();
     }
 
@@ -42,7 +42,7 @@
             else {
                 session_regenerate_id(TRUE); //セッションidを再発行
                 $_SESSION['login'] = $username;
-                header("Location:./users_count/patrol.php");
+                header("Location:./form/register.php");
                 exit();
             }
         } catch(PDOException $e) {

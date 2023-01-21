@@ -2,9 +2,9 @@
     session_start();
 
     //ログインされていない場合は強制的にログインページにリダイレクト
-    if (!isSet($_SESSION["login"])) {
-    header("Location: index.php");
-    exit();
+    if (!isset($_SESSION["login"])) {
+        header("Location: index.php");
+        exit();
     }
 
     //セッション変数をクリア

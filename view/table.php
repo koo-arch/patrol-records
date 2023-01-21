@@ -1,10 +1,12 @@
 <?php
+    session_start();
+    require_once '../judge_login.php';
     require_once '../function.php';
     require_once '../escape.php';
     // DB接続
     require '../secret.php';
 
-    if (isSet($_POST["submit"])) {
+    if (isset($_POST["submit"])) {
         $year = $_POST["year"];
         $month = $_POST["month"];
         $day = $_POST["day"];
@@ -18,7 +20,7 @@
         
         // 年で絞り込む場合
         $isYear = false;
-        if (isSet($year) && $year != "") {
+        if (isset($year) && $year != "") {
             $isYear = true;
             $year_query = " WHERE YEAR(日付) = :year";
             $sql .= $year_query;
@@ -26,7 +28,7 @@
         
         // 月で絞り込む場合
         $isMonth = false;
-        if (isSet($month) && $month != "") {
+        if (isset($month) && $month != "") {
             $isMonth = true;
             $month_query = " WHERE MONTH(日付) = :month";
             if ($isYear) {
@@ -37,7 +39,7 @@
 
         // 日で絞り込む場合
         $isDay = false;
-        if (isSet($day) && $day != "") {
+        if (isset($day) && $day != "") {
             $isDay = true;
             $day_query = " WHERE DAY(日付) = :day";
             if ($isYear || $isMonth) {
@@ -49,7 +51,7 @@
         // 昇順、降順選択
         $asc_desc = " ORDER BY ID DESC";
         // 昇順が選択されている時
-        if (isSet($order) && $order == '昇順') {
+        if (isset($order) && $order == '昇順') {
             $asc_desc =" ORDER BY ID ASC";
         }
         $sql .= $asc_desc;
