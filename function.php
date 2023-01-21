@@ -2,9 +2,9 @@
   // htmlエスケープ関数es()の定義
   function es($data,$charset='utf-8') {
     if (is_array($data)) {
-      return array_map(__METHOD__, $data);
+      return array_map(__METHOD__, $data); //$dataが配列のときは要素ごとに再起処理
     } else {
-      return htmlspecialchars($data, ENT_QUOTES, $charset);
+      return htmlspecialchars($data, ENT_QUOTES, $charset); //htmlエスケープ
     }
   }
 
@@ -24,12 +24,5 @@
       }
     }
     return $result;
-  }
-
-  function session_summary() {
-    session_start();
-    header('Expires: -1');
-    header('Cache-Control:');
-    header('Pragma:');
   }
 ?>

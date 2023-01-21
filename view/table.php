@@ -20,7 +20,7 @@
         $isYear = false;
         if (isSet($year) && $year != "") {
             $isYear = true;
-            $year_query = " WHERE YEAR(日付) = $year";
+            $year_query = " WHERE YEAR(日付) = :year";
             $sql .= $year_query;
         }
         
@@ -28,7 +28,7 @@
         $isMonth = false;
         if (isSet($month) && $month != "") {
             $isMonth = true;
-            $month_query = " WHERE MONTH(日付) = $month";
+            $month_query = " WHERE MONTH(日付) = :month";
             if ($isYear) {
                 $month_query = str_replace('WHERE', 'AND', $month_query); // 年でも絞り込んでいる場合はWHEREをANDに変更
             }
@@ -39,7 +39,7 @@
         $isDay = false;
         if (isSet($day) && $day != "") {
             $isDay = true;
-            $day_query = " WHERE DAY(日付) = $day";
+            $day_query = " WHERE DAY(日付) = :day";
             if ($isYear || $isMonth) {
                 $day_query = str_replace('WHERE', 'AND', $day_query); // 年、月でも絞り込んでいる場合はWHEREをANDに変更
             }
@@ -54,8 +54,19 @@
         }
         $sql .= $asc_desc;
 
-        $stmt = $dbh->query($sql);
+        $stmt = $dbh->prepare($sql);
 
+        if ($isYear) {
+            $stmt -> bindValue(':year', $year, PDO::PARAM_STR);
+        }
+        if ($isMonth) {
+            $stmt -> bindValue(':month', $month, PDO::PARAM_STR);
+        }
+        if ($isDay) {
+            $stmt -> bindValue(':day', $day, PDO::PARAM_STR);
+        }
+        
+        $stmt -> execute();
         $table = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $table_json = json_encode($table);
 

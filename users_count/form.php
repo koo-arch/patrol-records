@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
   </head>
   <body>
+    <?php require_once '../header.php' ?>
     <div class="inner">
-      <h1>電子巡回表</h1>
-      <div class="tab-flex">
-        <a id="users" tabindex="-1">利用人数登録</a>
-        <a id="records"  href="../view/table.php">巡回記録</a>
-      </div>
+      <h2>利用人数登録</h2>
+      <!-- 送信完了メッセージの表示 -->
       <div id="message"></div>
       <?php if( $success != "" ): ?>
       <p class="success_message"><?php echo $success; ?></p>
       <?php endif; ?>
+      <!-- エラーメッセージの表示 -->
       <?php if(isset($_SESSION["error"])): 
         $error = $_SESSION["error"];
         unset($_SESSION["error"]);

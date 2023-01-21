@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="css/style.css">
     <title>巡回記録</title>
 </head>
 <body>
+    <?php require_once '../header.php'; ?>
     <div class="inner">
-        <h1>電子巡回表</h1>
-        <div class="tab-flex">
-            <a id="users" href="../users_count/patrol.php">利用人数登録</a>
-            <a id="records" tabindex="-1">巡回記録</a>
-        </div>
+        <h2>電子巡回表</h2>
         <form method="POST" action="table.php">
             <div class="search">
                 <div class="choice">

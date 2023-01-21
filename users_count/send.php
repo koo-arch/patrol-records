@@ -1,11 +1,7 @@
 <?php
+  session_start();
   require_once '../function.php';
   require_once '../escape.php';
-?>
-
-<?php
-// エラーチェック
-  session_summary();
 
   // エラーを入れる配列
   $error = [];
@@ -95,9 +91,6 @@
     $isOwn = false;
   }
 
-?>
-
-<?php
   if (count($error) > 0){
     $_SESSION["error"] = $error;
     header("Location:patrol.php");

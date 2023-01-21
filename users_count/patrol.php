@@ -1,6 +1,6 @@
 <?php 
+  session_start();
   require_once '../function.php';
-  session_summary();
   // DB接続
   require '../secret.php';
 
@@ -9,15 +9,13 @@
 
     // SQL文(巡回場所の取得)
     $sql = "SELECT * FROM 巡回場所";
-
     $stmt = $dbh->query($sql);
-
-    $visitation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $patrol_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     // columnの配列
-    $placeArray = array_column($visitation, '場所');
-    $roomtypeArray = array_column($visitation, '形式');
-    $pcnumArray = array_column($visitation, '利用可能PC台数');
+    $placeArray = array_column($patrol_info, '場所');
+    $roomtypeArray = array_column($patrol_info, '形式');
+    $pcnumArray = array_column($patrol_info, '利用可能PC台数');
 
     // javascriptに渡すjson
     $place_json = json_encode($placeArray);
@@ -48,7 +46,7 @@
   if (isset($_POST["res_time"]) && isset($_POST["res_place"]) && isset($_POST["res_room"]) && isset($_POST["res_num"]) && isset($_POST["res_univ"]) && isset($_POST["res_own"])){
 
     // トークンが一致しているか
-    if (isset($_POST["chkno"]) && isset($_SESSION["chkno"]) && ($_POST["chkno"] == $_SESSION["chkno"])){
+    if (isset($_POST["chkno"]) && isset($_SESSION["chkno"]) && ($_POST["chkno"] === $_SESSION["chkno"])){
 
       $timetable = $_POST["res_time"];
       $place     = $_POST["res_place"];
@@ -85,10 +83,10 @@
 
     } else {
     }
-    // 新しいトークンをセット
-    $chkno = mt_rand();
-    $_SESSION["chkno"] = $chkno;
   }
+  // 新しいトークンをセット
+  $chkno = mt_rand();
+  $_SESSION["chkno"] = $chkno;
 
   require_once 'form.php';
 ?>
