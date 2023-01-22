@@ -3,7 +3,7 @@
 
     //ログインされていない場合は強制的にログインページにリダイレクト
     if (!isset($_SESSION["login"])) {
-        header("Location: index.php");
+        header("Location: index");
         exit();
     }
 
@@ -18,6 +18,6 @@
     //セッションを破棄
     session_destroy();
 
-    header('Location: index.php');
+    header('Location: index');
     exit();
 ?>

@@ -1,7 +1,7 @@
 <?php
     //ログインされていない場合は強制的にログインページにリダイレクト
     if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
+    header("Location: ../index");
     exit();
     }
 ?>

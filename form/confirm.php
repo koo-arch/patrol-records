@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="inner">
-        <form method="POST" action="register.php">
+        <form method="POST" action="register">
             <p class="confirm">入力内容確認</p>
             <table>
                 <tr>

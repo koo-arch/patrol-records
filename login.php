@@ -7,7 +7,7 @@
     //ログイン状態の場合ログイン後のページにリダイレクト
     if (isset($_SESSION["login"])) {
         session_regenerate_id(TRUE);
-        header("Location: ./form/register.php");
+        header("Location: ./form/register");
         exit();
     }
 
@@ -42,7 +42,7 @@
             else {
                 session_regenerate_id(TRUE); //セッションidを再発行
                 $_SESSION['login'] = $username;
-                header("Location:./form/register.php");
+                header("Location:./form/register");
                 exit();
             }
         } catch(PDOException $e) {

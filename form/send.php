@@ -95,7 +95,7 @@
 
   if (count($error) > 0){
     $_SESSION["error"] = $error;
-    header("Location:register.php");
+    header("Location:register");
     exit();
   }
   

@@ -32,7 +32,7 @@
           </ul>
       <?php endif; ?>
   
-      <form method="POST" action="send.php">
+      <form method="POST" action="send">
         <div>
           <label for="timetable">時限</label> 
           <div  class="container">

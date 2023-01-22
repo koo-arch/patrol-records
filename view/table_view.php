@@ -15,7 +15,7 @@
     <?php require_once '../header.php'; ?>
     <div class="inner">
         <h2>電子巡回表</h2>
-        <form method="POST" action="table.php">
+        <form method="POST" action="table">
             <div class="search">
                 <div class="choice">
                     <label>表示順</label>
