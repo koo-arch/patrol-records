@@ -60,24 +60,42 @@
       $pcnum     = $_POST["res_num"];
       $univ      = $_POST["res_univ"];
       $own       = $_POST["res_own"];
+      $update    = $_POST["update"];
+      $ID        = $_POST["ID"];
 
       try{
         $dbh = new PDO($dsn, $user, $pass);
+        
+        if ($update && $ID > 0) {
+          $sql = "UPDATE 巡回記録 SET 利用可能台数 = :pcnum, 大学PC利用者数 = :univ, 私物PC利用者数 = :own WHERE ID = :ID";
+          
+          $stmt = $dbh->prepare($sql);
+          $stmt -> bindValue(':pcnum', $pcnum, PDO::PARAM_INT);
+          $stmt -> bindValue(':univ', $univ, PDO::PARAM_INT);
+          $stmt -> bindValue(':own', $own, PDO::PARAM_INT);
+          $stmt -> bindValue(':ID', $ID, PDO::PARAM_INT);
+          $stmt -> execute();
 
-        // SQL文(巡回表に日付、時限、場所、形式、利用可能PC数、大学PC利用者数、私物PC利用者数を記録)
-        $sql = "INSERT INTO 巡回記録 VALUES (0, CURRENT_DATE, :timetable, :place, :room, :pcnum, :univ, :own)";
+          $success = "正常に更新されました";
+        }
 
-        $stmt = $dbh->prepare($sql);
+        if (!$update) {
+          // SQL文(巡回表に日付、時限、場所、形式、利用可能台数、大学PC利用者数、私物PC利用者数を記録)
+          $sql = "INSERT INTO 巡回記録 VALUES (0, CURRENT_DATE, :timetable, :place, :room, :pcnum, :univ, :own)";
+  
+          $stmt = $dbh->prepare($sql);
+  
+          $stmt -> bindValue(':timetable', $timetable, PDO::PARAM_STR);
+          $stmt -> bindValue(':place', $place, PDO::PARAM_STR);
+          $stmt -> bindValue(':room', $room, PDO::PARAM_STR);
+          $stmt -> bindValue(':pcnum', $pcnum, PDO::PARAM_INT);
+          $stmt -> bindValue(':univ', $univ, PDO::PARAM_INT);
+          $stmt -> bindValue(':own', $own, PDO::PARAM_INT);
+          $stmt -> execute();
 
-        $stmt -> bindValue(':timetable', $timetable, PDO::PARAM_STR);
-        $stmt -> bindValue(':place', $place, PDO::PARAM_STR);
-        $stmt -> bindValue(':room', $room, PDO::PARAM_STR);
-        $stmt -> bindValue(':pcnum', $pcnum, PDO::PARAM_INT);
-        $stmt -> bindValue(':univ', $univ, PDO::PARAM_INT);
-        $stmt -> bindValue(':own', $own, PDO::PARAM_INT);
-        $stmt -> execute();
-
-
+          $success = "正常に送信されました";
+        }
+        
       }catch(PDOException $e){
         print("データベースの接続に失敗しました".$e->getMessage());
         die();
@@ -85,7 +103,6 @@
 
       //接続を閉じる
       $dbh = null;
-      $success = "正常に送信されました";
 
     } else {
       $error[] = "トークンが一致しません";
@@ -94,7 +111,6 @@
   // 新しいトークンをセット
   $chkno = mt_rand();
   $_SESSION["chkno"] = $chkno;
-  unset($_POST);
 
   require_once 'form.php';
 ?>

@@ -44,8 +44,13 @@
             <input type="hidden" name="res_num" value="<?php echo $pcnum?>">
             <input type="hidden" name="res_univ" value="<?php echo $univ?>">
             <input type="hidden" name="res_own" value="<?php echo $own?>">
+            <input type="hidden" name="update" value="<?php echo $update?>">
+            <input type="hidden" name="ID" value="<?php echo $ID?>">
+            <?php if ($update == true):?>
+            <p class="message">選択した時限、場所、形式のデータはすでに登録済みです。送信すると上記ののデータに上書きされます。</p>
+            <?php endif; ?>
             <div class="flex">
-                <button type="button" class="back" onclick="history.back()">修正</button>
+                <button type="button" class="back" onclick="location.href='./register'">修正</button>
                 <input type="submit" class="send" value="送信">
             </div>
         </form>

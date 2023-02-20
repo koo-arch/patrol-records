@@ -100,5 +100,6 @@
   }
   
   $chkno = $_SESSION["chkno"];
+  require_once 'check_overlap.php';
   require_once 'confirm.php';
 ?>
