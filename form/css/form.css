@@ -15,6 +15,7 @@ h2 {
 }
 
 #own[disabled] {
+  border: 1px solid #ccc;
   background: #DCDCDC;
   cursor: not-allowed;
   /* 禁止カーソル */

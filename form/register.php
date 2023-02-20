@@ -43,11 +43,16 @@
   $dbh = null;
 
   $success = "";
+
+  $post_chkno = isset($_POST["chkno"]) ? $_POST["chkno"] : "";
+
+  $session_chkno = isset($_SESSION["chkno"]) ? $_SESSION["chkno"] : "";
+
   // POSTされた値があるか
   if (isset($_POST["res_time"]) && isset($_POST["res_place"]) && isset($_POST["res_room"]) && isset($_POST["res_num"]) && isset($_POST["res_univ"]) && isset($_POST["res_own"])){
 
     // トークンが一致しているか
-    if (isset($_POST["chkno"]) && isset($_SESSION["chkno"]) && ($_POST["chkno"] == $_SESSION["chkno"])){
+    if ($post_chkno != "" && $session_chkno != "" && ($post_chkno == $session_chkno)){
 
       $timetable = $_POST["res_time"];
       $place     = $_POST["res_place"];
@@ -89,6 +94,7 @@
   // 新しいトークンをセット
   $chkno = mt_rand();
   $_SESSION["chkno"] = $chkno;
+  unset($_POST);
 
   require_once 'form.php';
 ?>

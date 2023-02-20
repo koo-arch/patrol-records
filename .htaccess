@@ -1,0 +1,9 @@
+#####wpcomment_nojpdeny#####
+SetEnvIf Request_URI ".*" WpCommentDeny
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#####end:wpcomment_nojpdeny#####

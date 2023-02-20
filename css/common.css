@@ -45,6 +45,7 @@ input[type="text"] {
 }
 
 input[type="text"][disabled] {
+    border: 1px solid #ccc;
     background: #DCDCDC;
     cursor: not-allowed;
     /* 禁止カーソル */
@@ -93,10 +94,11 @@ button {
 }
 
 button:hover {
-    background-color: #b9b9b9;
+    background-color: rgb(233, 233, 233);
 }
 
 button[disabled] {
+    border: 1px solid #ccc;
     background: #DCDCDC;
     cursor: not-allowed;
     /* 禁止カーソル */
